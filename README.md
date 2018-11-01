@@ -1,8 +1,6 @@
-# BrewerySearch
+# BreweryCLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Brewery_Search`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to my Brewery CLI! Once you put in the state of interest, this gem will return a list of Breweries in your state. If you would like more information about a certain Brewery, simply put in the number next to the Brewery and the user will be returned with the address, telephone number, website, and Brewery type.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Enter the state abbreviation. user will be returned with a numbered list of Brewery names. The user can then enter the brewery number to get more information on a brewery, enter another state, or exit.
 
 ## Development
 
@@ -32,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'tpope0928'/Brewery_Search. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'tpope0928'/Brewery_CLI. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +38,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the BrewerySearch project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'tpope0928'/Brewery_Search/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the BreweryCLI project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'tpope0928'/Brewery_CLI/blob/master/CODE_OF_CONDUCT.md).
