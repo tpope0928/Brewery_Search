@@ -53,7 +53,7 @@ class Breweries::CLI
       puts ""
       puts "---------- #{state} Breweries ----------"
       puts ""
-      Breweries::Brewery.all[state-1, 10].each.with_index(state) do |brewery, index|
+      Breweries::Brewery.all[state].each.with_index(state) do |brewery, index|
         puts "#{index}. #{brewery.name}"
       end
     end
