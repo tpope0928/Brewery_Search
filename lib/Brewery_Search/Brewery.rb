@@ -1,3 +1,3 @@
-class Breweries::Brewery
+class BrewerySearch::Brewery
 
 end

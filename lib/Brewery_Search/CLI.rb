@@ -1,4 +1,4 @@
-class Breweries::CLI
+class BrewerySearch::CLI
 
   def call
     puts "Breweries!"

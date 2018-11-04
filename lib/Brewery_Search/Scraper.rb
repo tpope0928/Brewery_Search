@@ -1,3 +1,3 @@
-class Breweries::Scraper
+class BrewerySearch::Scraper
 
 end
