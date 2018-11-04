@@ -1,0 +1,3 @@
+class Breweries::Scraper
+
+end

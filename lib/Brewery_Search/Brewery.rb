@@ -1,0 +1,3 @@
+class Breweries::Brewery
+
+end
