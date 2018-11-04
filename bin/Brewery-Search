@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/worlds_best_restaurants'
+require_relative '../lib/Brewery-Search'
