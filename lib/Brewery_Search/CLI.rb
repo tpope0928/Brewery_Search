@@ -51,7 +51,7 @@ class Breweries::CLI
   
     def print_breweries(state)
       puts ""
-      puts "---------- Restaurants #{state} ----------"
+      puts "---------- #{state} Breweries ----------"
       puts ""
       Breweries::Brewery.all[state-1, 10].each.with_index(state) do |brewery, index|
         puts "#{index}. #{brewery.name}"
