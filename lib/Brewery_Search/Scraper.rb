@@ -1,3 +1,0 @@
-class BrewerySearch::Scraper
-
-end

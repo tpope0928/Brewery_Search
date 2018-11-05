@@ -1,7 +1,7 @@
-require "Brewery_Search/version"
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 
-module BrewerySearch
-  # Your code goes here...
-end
-
-require_relative '../config/environment'
+require_relative "./Brewery_Search/version"
+require_relative './Brewery_Search/Brewery'
+require_relative './Brewery_Search/CLI'
