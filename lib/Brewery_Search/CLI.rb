@@ -25,6 +25,8 @@ class BrewerySearch::CLI
         puts @breweries[input.to_i-1]
       elsif input == "list"
         list_breweries
+      elsif input == "exit"
+        goodbye
       else
         puts "Are you drunk? Please type list or exit."
       end
