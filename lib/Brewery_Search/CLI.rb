@@ -8,11 +8,11 @@ class BrewerySearch::CLI
 
   def list_breweries
     puts "Breweries!"
-    puts <<-DOC.gsub /^\s*/, ''
-      1. 1623 Brewing CO, llc
-      2. 7 Locks Brewing
-      3. Antietam Brewery,LLC
-    DOC
+
+    @breweries = BrewerySearch::Brewery.all
+    @breweries.each.with_index(1) do |deal, i|
+      puts "#{i}. #{@breweries}"
+    end
   end
 
   def info
@@ -20,14 +20,10 @@ class BrewerySearch::CLI
     input = nil
     while input != "exit"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "More info on brewery 1"
-      when "2"
-        puts "More info on brewery 2"
-      when "3"
-        puts "More info on brewery 3"
-      when "list"
+
+      if input.to_i > 0
+        puts @breweries[input.to_i-1]
+      elsif input == "list"
         list_breweries
       else
         puts "Are you drunk? Please type list or exit."
@@ -38,5 +34,4 @@ class BrewerySearch::CLI
   def goodbye
     puts "See you next time! Drink responsibly!"
   end
-
 end
