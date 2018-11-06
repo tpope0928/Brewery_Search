@@ -16,7 +16,7 @@ class BrewerySearch::CLI
   end
 
   def info
-    puts "Please enter the number for the brewery you would like more information about or type exit:"
+    puts "Please enter the number for the brewery you would like more information about, list to go back to list of breweries, or type exit:"
     input = nil
     while input != "exit"
       input = gets.strip.downcase
@@ -27,6 +27,10 @@ class BrewerySearch::CLI
         puts "More info on brewery 2"
       when "3"
         puts "More info on brewery 3"
+      when "list"
+        list_breweries
+      else
+        puts "Are you drunk? Please type list or exit."
       end
     end
   end
