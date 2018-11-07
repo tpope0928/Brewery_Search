@@ -8,7 +8,10 @@ class BrewerySearch::Brewery
     #  2. 7 Locks Brewing
     #  3. Antietam Brewery,LLC
     #DOC
+    self.scrape_breweries
+  end
 
+  def self.scrape_breweries
     brewery_1 = self.new
     brewery_1.name = "1623 Brewing CO, LLC"
     brewery_1.address = "1146 colonel Joshua Ct
