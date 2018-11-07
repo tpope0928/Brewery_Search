@@ -22,13 +22,12 @@ class BrewerySearch::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @breweries[input.to_i-1]
+        the_brewery = @breweries[input.to_i-1]
+        puts "#{the_brewery.name} - #{the_brewery.address} - #{the_brewery.phone} - #{the_brewery.url} - #{the_brewery.brewery_type}"
       elsif input == "list"
         list_breweries
-      elsif input == "exit"
-        goodbye
       else
-        puts "Are you drunk? Please type list or exit."
+        puts "Not sure what you want, type list or exit."
       end
     end
   end
