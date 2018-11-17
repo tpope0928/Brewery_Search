@@ -1,10 +1,14 @@
 class BrewerySearch::CLI
 
   def call
+    state_search
     list_breweries
     info
     goodbye
   end
+
+  def state_search
+    puts "Please enter the abbriviation of the state you would like to find breweries for:"
 
   def list_breweries
     puts "Breweries!"
