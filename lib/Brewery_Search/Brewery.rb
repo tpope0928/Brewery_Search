@@ -21,19 +21,19 @@ class BrewerySearch::Brewery
 
   def self.scrape_site
 
-    doc = Nokogiri::HTML(open("https://woot.com"))
+    doc = Nokogiri::HTML(open("https://www.brewersassociation.org/directories/breweries/"))
 
     brewery = self.new
-    brewery.name = doc.search("h2.main-title").text.strip
-    brewery.address = doc.search("#todays-deal span.price").text.strip
-    brewery.city_state = doc.search
-    brewery.phone = doc.search
-    brewery.url = doc.search("a.wantone").first.attr("href").strip
-    brewery.brewery_type = doc.search
+    brewery.name = doc.search("li.name").text.strip
+    brewery.address = doc.search("li.address").text.strip
+    brewery.city_state = doc.search("li").first
+    brewery.phone = doc.search("li.telephone")
+    brewery.url = doc.search("li.url").first
+    brewery.brewery_type = doc.search("li.brewery_type")
 
     brewery
   end
-
+end
 
 
     #brewery_1 = self.new
@@ -61,5 +61,3 @@ class BrewerySearch::Brewery
     #brewery_3.brewery_type = "Micro"
 
     #[brewery_1, brewery_2, brewery_3]
-  end
-end
