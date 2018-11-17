@@ -24,12 +24,12 @@ class BrewerySearch::Brewery
     doc = Nokogiri::HTML(open("https://www.brewersassociation.org/directories/breweries/"))
 
     brewery = self.new
-    brewery.name = doc.search("li.name").text.strip
-    brewery.address = doc.search("li.address").text.strip
-    brewery.city_state = doc.search("li").first
-    brewery.phone = doc.search("li.telephone")
-    brewery.url = doc.search("li.url").first
-    brewery.brewery_type = doc.search("li.brewery_type")
+    brewery.name = doc.search("#vcard simple brewery-info span.name").text.strip
+    brewery.address = doc.search("#vcard simple brewery-info span.address").text.strip
+    brewery.city_state = doc.search("#vcard simple brewery-info span.li").first
+    brewery.phone = doc.search("#vcard simple brewery-info span.telephone")
+    brewery.url = doc.search("#vcard simple brewery-info span.url").first
+    brewery.brewery_type = doc.search("#vcard simple brewery-info span.brewery_type")
 
     brewery
   end
@@ -61,3 +61,5 @@ end
     #brewery_3.brewery_type = "Micro"
 
     #[brewery_1, brewery_2, brewery_3]
+
+    							
