@@ -30,7 +30,7 @@ class BrewerySearch::CLI
         puts ""
         puts "#{brewery.description}"
         puts ""
-        puts "#{brewery.location} - #{brewery.phone} - #{brewery.website}
+        puts "#{brewery.location} - #{brewery.phone} - #{brewery.website}"
       elsif input == "list"
         list_breweries
       elsif input == "exit"
