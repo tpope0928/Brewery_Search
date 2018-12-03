@@ -45,9 +45,3 @@ class BrewerySearch::CLI
     puts ""
     puts " Have fun! Please drink responsibily!"
   end
-
-
-
-
-    
-end
