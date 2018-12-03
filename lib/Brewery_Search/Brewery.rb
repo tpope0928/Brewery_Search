@@ -16,6 +16,22 @@ class BrewerySearch::Brewery
     breweries
   end
 
+  def scrape_untappd
+    doc = Nokogiri::HTML(open("https://untappd.com/brewery/top_rated?country_id=86"))
+
+    breweries = self.new
+    breweries.name = doc.search("section.features h2").text.strip
+    breweries.location = doc.search("button.buy-button").text.gsub("Buy it.", "").strip
+    breweries.type = "https://meh.com"
+    breweries.num_beers =
+    breweries.rating =
+    breweries.num_rating =
+    breweries.website =
+    breweries.description =
+
+    breweries
+  end
+
 end
 
 
