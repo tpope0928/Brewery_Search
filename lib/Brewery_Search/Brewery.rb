@@ -21,7 +21,7 @@ class BrewerySearch::Brewery
     breweries.name = doc.css("div.beer-details a").text.strip
     breweries.location = doc.css("div.brewery").text.strip
     breweries.type = doc.css("p.style")
-    breweries.num_beers = doc.css("p.abv")
+    breweries.num_beers = doc.css("p.abv").text.strip
     breweries.rating = doc.css("p.rating span[num]")
     breweries.num_rating = doc.css("div.details brewery p[ibu]")
     breweries.website = doc.search("a.url tip track-click")
