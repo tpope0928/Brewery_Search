@@ -1,38 +1,21 @@
 class BrewerySearch::Brewery
 
-  attr_accessor :name, :address, :city_state, :phone, :url, :brewery_type
+  attr_accessor :name, :location, :type, :num_beers, :rating, :num_rating :website, :description
+
+  @@all = []
 
   def self.all
-    #puts <<-DOC.gsub /^\s*/, ''
-    #  1. 1623 Brewing CO, LLC
-    #  2. 7 Locks Brewing
-    #  3. Antietam Brewery,LLC
-    #DOC
     self.scrape_breweries
   end
 
-  def self.scrape_breweries
+  def scrape_site
     breweries = []
 
-    breweries << self.scrape_site
+    breweries < self.scrape_untappd
 
     breweries
   end
 
-  def self.scrape_site
-
-    doc = Nokogiri::HTML(open("https://www.brewersassociation.org/directories/breweries/"))
-
-    brewery = self.new
-    brewery.name = doc.search("#vcard simple brewery-info span.name").text.strip
-    brewery.address = doc.search("#vcard simple brewery-info span.address").text.strip
-    brewery.city_state = doc.search("#vcard simple brewery-info span.li").first
-    brewery.phone = doc.search("#vcard simple brewery-info span.telephone")
-    brewery.url = doc.doc.search("a.url").first.attr("href").strip
-    brewery.brewery_type = doc.search("#vcard simple brewery-info span.brewery_type")
-
-    brewery
-  end
 end
 
 
