@@ -6,7 +6,7 @@ class BrewerySearch::Brewery
     self.scrape_breweries
   end
 
-  def scrape_site
+  def scrape_breweries
     breweries = []
 
     breweries < self.scrape_untappd
