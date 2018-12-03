@@ -6,15 +6,15 @@ class BrewerySearch::Brewery
     self.scrape_breweries
   end
 
-  def scrape_breweries
+  def self.scrape_breweries
     breweries = []
 
-    breweries < self.scrape_untappd
+    breweries << self.scrape_untappd
 
     breweries
   end
 
-  def scrape_untappd
+  def self.scrape_untappd
     doc = Nokogiri::HTML(open("https://untappd.com/brewery/top_rated?country_id=86"))
 
     breweries = self.new
@@ -24,7 +24,7 @@ class BrewerySearch::Brewery
     breweries.num_beers = doc.css("p.abv")
     breweries.rating = doc.css("p.rating span[num]")
     breweries.num_rating = doc.css("div.details brewery p[ibu]")
-    breweries.website = doc.search("a.url tip track-click").first.attr("href").strip
+    breweries.website = doc.search("a.url tip track-click")
     breweries.description = doc.css("div.beer-descrption-read-less")
 
     breweries
