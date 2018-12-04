@@ -14,7 +14,7 @@ class BrewerySearch::CLI
   def list_breweries
     @breweries = BrewerySearch::Brewery.all
     @breweries.each.with_index(1) do |brewery, i|
-      puts "#{i}. #{brewery.name}  #{brewery.rating}  #{brewery.num_beers}"
+      puts "#{i}. #{brewery.name} "
     end
   end
 
@@ -22,7 +22,7 @@ class BrewerySearch::CLI
     input = nil
     puts ""
     puts "What restaurant would you like more information on?"
-    input = gets.strip.downcase
+    input = gets.strip
 
     if input.to_i > 0
         the_brewery = @breweries[input.to_i-1]

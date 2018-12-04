@@ -18,12 +18,12 @@ class BrewerySearch::Brewery
     doc = Nokogiri::HTML(open("https://untappd.com/brewery/top_rated?country_id=86"))
 
     brewery = self.new
-    brewery.name = doc.css("div.beer-details a").text.strip
+    brewery.name = doc.css("div.beer-item p.name").text.strip
     #brewery.location = doc.css("div.brewery").text.strip
     #brewery.type = doc.css("p.style")
-    brewery.num_beers = doc.css("details brewery p.abv").text.strip
-    brewery.rating = doc.css("details brewery p.rating span[num]").text.strip
-    brewery.num_rating = doc.css("div.details brewery p[ibu]").text.strip
+    brewery.num_beers = doc.css("div.beer-item p.abv").text.strip
+    brewery.rating = doc.css("div.beer-item p.rating span[num]").text.strip
+    brewery.num_rating = doc.css("div.beer-item p[ibu]").text.strip
     #brewery.website = doc.search("a.url tip track-click")
     #brewery.description = doc.css("div.beer-descrption-read-less")
 
