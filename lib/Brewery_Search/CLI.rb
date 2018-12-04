@@ -14,7 +14,7 @@ class BrewerySearch::CLI
   def list_breweries
     @breweries = BrewerySearch::Brewery.all
     @breweries.each.with_index(1) do |brewery, i|
-      puts "#{i}. #{brewery.name} - #{brewery.rating} - #{brewery.num_beers}"
+      puts "#{i}. #{brewery.name}  #{brewery.rating}  #{brewery.num_beers}"
     end
   end
 
