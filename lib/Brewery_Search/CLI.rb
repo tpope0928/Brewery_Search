@@ -27,10 +27,10 @@ class BrewerySearch::CLI
     if input.to_i > 0
         the_brewery = @breweries[input.to_i-1]
         puts "#{the_brewery.name} - #{the_brewery.rating} - #{the_brewery.num_rating} - #{the_brewery.num_beers} - #{the_brewery.type}"
-        puts ""
-        puts "#{the_brewery.description}"
-        puts ""
-        puts "#{the_brewery.location} - #{the_brewery.phone} - #{the_brewery.website}"
+        #puts ""
+        #puts "#{the_brewery.description}"
+        #puts ""
+        #puts "#{the_brewery.location} - #{the_brewery.phone} - #{the_brewery.website}"
       elsif input == "list"
         list_breweries
       elsif input == "exit"

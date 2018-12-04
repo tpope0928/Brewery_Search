@@ -19,13 +19,13 @@ class BrewerySearch::Brewery
 
     brewery = self.new
     brewery.name = doc.css("div.beer-details a").text.strip
-    brewery.location = doc.css("div.brewery").text.strip
-    brewery.type = doc.css("p.style")
+    #brewery.location = doc.css("div.brewery").text.strip
+    #brewery.type = doc.css("p.style")
     brewery.num_beers = doc.css("p.abv").text.strip
     brewery.rating = doc.css("p.rating span[num]")
     brewery.num_rating = doc.css("div.details brewery p[ibu]")
-    brewery.website = doc.search("a.url tip track-click")
-    brewery.description = doc.css("div.beer-descrption-read-less")
+    #brewery.website = doc.search("a.url tip track-click")
+    #brewery.description = doc.css("div.beer-descrption-read-less")
 
     brewery
   end
