@@ -6,7 +6,12 @@ require "Brewery_Search"
 Scraper.scrape_data
 
 Brewery.all.each do |brewery|
+  puts " "
+  puts "------------------------------------"
     brewery.instance_variables.each do |var|
       puts brewery.instance_variable_get(var)
     end
+  puts "------------------------------------"
+  puts " "
+  sleep(1)
 end
