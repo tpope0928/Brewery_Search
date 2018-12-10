@@ -17,9 +17,9 @@ class Scraper
       Nokogiri::HTML(open("https://untappd.com/brewery/top_rated?country_id=86"))
       doc.css(".beer-item").each do |brewery|
         brewery.css(".name").text
-        brewery.css(".abv").text
+        brewery.css(".abv").text.gsub("\n", " ")
         brewery.css(".num").text
-        brewery.css(".ibu").text
+        brewery.css(".ibu").text.gsub("\n", " ")
         binding.pry
       end
 
