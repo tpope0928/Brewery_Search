@@ -25,7 +25,7 @@ class Scraper
       doc.css(".beer-item").each do |brewery|
           Brewery.new({
             name: brewery.css(".name").text,
-            rating: brewery.css(".num").text,
+            rating: brewery.css(".num").text.strip,
             num_rating: brewery.css(".ibu").text.strip,
             num_beers: brewery.css(".abv").text.strip,
 
