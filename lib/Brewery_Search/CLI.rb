@@ -1,3 +1,38 @@
+class BrewerySearch::CLI
+
+  def start
+      puts "Welcome to the top 50 Breweries in the United States!"
+      puts "Here is a list of the top rated breweries according to UnTapped:"
+  end
+
+
+
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #class BrewerySearch::CLI
 
   #def call
