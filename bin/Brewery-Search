@@ -3,26 +3,4 @@
 require "bundler/setup"
 require "Brewery_Search"
 
-Scraper.scrape_data
-
-Brewery.all.each do |brewery|
-  brewery_details = [
-    " Name:",
-    " Rating:",
-    "",
-    "",
-  ]
-
-  puts "------------------------------------"
-    brewery.instance_variables.each_with_index do |var, index|
-      puts "#{brewery_details[index]} #{brewery.instance_variable_get(var)}"
-    end
-  puts "------------------------------------"
-
-  #sleep(1)
-end
-
-#Brewery Name: The Answer
-#Untappd user rating(4.329)
-#277,229 Ratings
-#934 Beers
+BrewerySearch::CLI.new.start
