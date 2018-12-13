@@ -9,8 +9,8 @@ class BrewerySearch::CLI
     end
   end
 
-def list_breweries
-    BrewerySearch::Brewery.all.each do |brewery, i|
+  def list_breweries
+    @breweries.each do |brewery, i|
       brewery_details = [
     " Name:",
     " Rating:",
@@ -24,5 +24,4 @@ def list_breweries
       end
     end
     puts "-----------------------------------------"
-    sleep 2
   end
