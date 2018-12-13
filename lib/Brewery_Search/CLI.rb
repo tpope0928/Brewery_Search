@@ -1,18 +1,5 @@
 class BrewerySearch::CLI
 
-  SIMPLE_DETAILS = [
-    " Name:",
-    " Rating:",
-  ]
-
-  MORE_DETAILS = [
-    " Name:",
-    " Rating:",
-    "", #num_rating
-    "", #num_beers
-  ]
-
-
   def start
       BrewerySearch::Scraper.scrape_data
       @breweries = BrewerySearch::Brewery.all
@@ -23,7 +10,7 @@ class BrewerySearch::CLI
   end
 
 def list_breweries
-    BrewerySearch::Brewery.all.each do |brewery|
+    BrewerySearch::Brewery.all.each do |brewery, i|
       brewery_details = [
     " Name:",
     " Rating:",
@@ -31,12 +18,11 @@ def list_breweries
     "", #num_beers
     ]
 
-    puts " "
     puts "-----------------------------------------"
     brewery.instance_variables.each_with_index do |var, index|
         puts "#{brewery_details[index]} #{brewery.instance_variable_get(var)}"
       end
     end
-    puts " "
     puts "-----------------------------------------"
+    sleep 2
   end
