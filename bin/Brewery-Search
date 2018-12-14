@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "Brewery_Search"
 
-BrewerySearch::CLI.new.start
+BrewerySearch::CLI.new.call

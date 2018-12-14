@@ -1,36 +1,64 @@
 class BrewerySearch::CLI
 
-  SIMPLE_DETAILS = [
-    " Name:",
-    " Rating:"
-  ]
+  def call
+    BrewerySearch::Scraper.new.create_brewery
+    run
+  end
 
-  MORE_DETAILS = [
-    " Name:",
-    " Rating:",
-    "", #num_rating
-    "" #num_beers
-  ]
+  def run
+    print_brewery_list
+        
+    puts "Enter the number of the brewery you would like to get " \
+    "more information on, or type 'exit' to quit."
 
-  def start
-      BrewerySearch::Scraper.scrape_data
-      @breweries = BrewerySearch::Brewery.all
-      puts "Welcome to the top 50 Breweries in the United States!"
-      puts "Here is a list of the top rated breweries according to UnTapped:"
-      list_breweries
+    input = gets.strip  ##INPUT
+
+    # Invalid input handling
+    while !(input == 'exit' || input.to_i >= 1 && input.to_i <= 50)
+        puts "Input was invalid. Please try again."
+        input = gets.strip
     end
-  end
 
-  def list_breweries
-    @breweries.each do |b, i|
-      puts "-----------------------------------------"
-      b.instance_variables.each_with_index do |var, index|
-        list_brewery(var, index, SIMPLE_DETAILS)
-      end
+    if input != "exit"
+        print_brewery_detail(BrewerySearch::Brewery.find_by_num_beers(input))
+            
+        puts "Type 'back' to return to brewery list, or 'exit' to quit."
+            
+        input_2 = gets.strip  ##INPUT
+            
+            # Invalid input handling
+            while !(input_2 == 'exit' || input_2 == 'back')
+                puts "Input was invalid. Please try again."
+                input_2 = gets.strip
+            end
+            
+            if input_2 == "back"
+                run
+            end
+        end
     end
-    puts "-----------------------------------------"
-  end
 
-  def list_brewery(var, index, details)
-    puts "#{details[index]}: #{brewery.instance_variable_get(var)}"
-  end
+    def print_brewery_list
+        puts ""
+        puts "------ Untappd Top 50 US Breweries ------"
+        puts ""
+
+        BrewerySearch::Brewery.all.each do |brewery|
+            puts "  #{brewery.name}, #{brewery.rating}"
+        end
+
+        puts ""
+    end
+
+    def print_brewery_detail(brewery)
+        puts ""
+        print "--------"
+        print " #{brewery.name}, #{brewery.rating} "
+        print"--------".colorize(:light_blue)
+        puts ""
+        puts ""
+        puts "Number of Ratings: #{brewery.num_rating}"
+        puts "Number of Beers: #{brewery.num_beers}"
+        puts "Untappd URL: #{brewery.website}"
+    end
+end
