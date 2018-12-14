@@ -4,7 +4,7 @@ class BrewerySearch::Brewery
 
     @@all = []
 
-    def initialize(name=nil, rating=nil, url=nil, num_rating=nil, num_beers=nil)
+    def initialize(name=nil, rating=nil)
         @name = name
         @rating = rating
         @@all << self
@@ -30,7 +30,7 @@ class BrewerySearch::Brewery
     end
 
     def doc
-        Nokogiri::HTML(open(self.url))
+      Nokogiri::HTML(open(self.url))
     end
 
     def self.find_by_num_beers(search_num_beers)
