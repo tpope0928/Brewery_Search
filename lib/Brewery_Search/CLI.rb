@@ -7,7 +7,7 @@ class BrewerySearch::CLI
 
   def run
     print_brewery_list
-        
+
     puts "Enter the number of the brewery you would like to get " \
     "more information on, or type 'exit' to quit."
 
@@ -21,17 +21,17 @@ class BrewerySearch::CLI
 
     if input != "exit"
         print_brewery_detail(BrewerySearch::Brewery.find_by_num_beers(input))
-            
+
         puts "Type 'back' to return to brewery list, or 'exit' to quit."
-            
+
         input_2 = gets.strip  ##INPUT
-            
+
             # Invalid input handling
             while !(input_2 == 'exit' || input_2 == 'back')
                 puts "Input was invalid. Please try again."
                 input_2 = gets.strip
             end
-            
+
             if input_2 == "back"
                 run
             end
@@ -43,8 +43,8 @@ class BrewerySearch::CLI
         puts "------ Untappd Top 50 US Breweries ------"
         puts ""
 
-        BrewerySearch::Brewery.all.each do |brewery|
-            puts "  #{brewery.name}, #{brewery.rating}"
+        BrewerySearch::Brewery.all.each_with_index do |brewery, i|
+            puts "#{i}.  #{brewery.name}, #{brewery.rating}"
         end
 
         puts ""
