@@ -1,12 +1,13 @@
 class BrewerySearch::Brewery
 
-    attr_accessor :name, :rating, :num_rating, :num_beers, :website
+    attr_accessor :name, :rating, :num_rating, :num_beers, :url
 
     @@all = []
 
-    def initialize(name=nil, rating=nil)
+    def initialize(name=nil, rating=nil, url=nil)
         @name = name
         @rating = rating
+        @url = url
         @@all << self
     end
 
@@ -14,6 +15,7 @@ class BrewerySearch::Brewery
           self.new(
               brewery_url.css(".name").text, #name
               brewery_url.css(".num").text.strip, #rating
+
           )
     end
 
@@ -25,8 +27,8 @@ class BrewerySearch::Brewery
       doc.css(".abv").text.strip
     end
 
-    def website
-
+    def url
+      doc.css("div.beer-item a").text
     end
 
     def doc

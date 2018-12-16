@@ -54,11 +54,10 @@ class BrewerySearch::CLI
         puts ""
         print "--------"
         print " #{brewery.name}, #{brewery.rating} "
-        print"--------".colorize(:light_blue)
         puts ""
         puts ""
         puts "Number of Ratings: #{brewery.num_rating}"
         puts "Number of Beers: #{brewery.num_beers}"
-        puts "Untappd URL: #{brewery.website}"
+        puts "Untappd URL: #{brewery.url}"
     end
 end
