@@ -44,7 +44,7 @@ class BrewerySearch::CLI
         puts ""
 
         BrewerySearch::Brewery.all.each_with_index do |brewery, i|
-            puts "#{i}.  #{brewery.name}, #{brewery.rating}"
+            puts "#{i+1}.  #{brewery.name}, #{brewery.rating}"
         end
 
         puts ""
