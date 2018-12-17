@@ -20,7 +20,9 @@ class BrewerySearch::CLI
     end
 
     if input != "exit"
-        print_brewery_detail(BrewerySearch::Brewery.find_by_num_beers(input))
+        brewery = BrewerySearch::Brewery.find(input.to_i)
+
+        print_brewery_detail(brewery)
 
         puts "Type 'back' to return to brewery list, or 'exit' to quit."
 

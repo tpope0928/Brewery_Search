@@ -10,7 +10,7 @@ class BrewerySearch::Scraper
 
   def create_brewery
     scrape_breweries.each do |brewery_url|
-            BrewerySearch::Brewery.new_from_url(brewery_url)
+            BrewerySearch::Brewery.new_from_index_page(brewery_url)
     end
     BrewerySearch::Brewery.all
   end

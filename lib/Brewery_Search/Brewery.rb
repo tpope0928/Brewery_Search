@@ -1,49 +1,42 @@
 class BrewerySearch::Brewery
 
-    attr_accessor :name, :rating, :num_rating, :num_beers, :url
+  attr_accessor :name, :rating, :num_rating, :num_beers, :url
 
-    @@all = []
+  @@all = []
 
-    def initialize(name=nil, rating=nil, url=nil)
-        @name = name
-        @rating = rating
-        @url = url
-        @@all << self
-    end
+  def self.new_from_index_page(b)
+    self.new(
+      b.css(".name").text,
+      "https://untappd.com/brewery/top_rated?country_id=86#{b.css("a").attribute("href").text}",
+      b.css(".num").text.strip,
 
-    def self.new_from_url(brewery_url)
-          self.new(
-              brewery_url.css(".name").text, #name
-              brewery_url.css(".num").text.strip, #rating
+      )
+  end
 
-          )
-    end
+  def initialize(name=nil, url=nil, rating=nil)
+    @name = name
+    @url = url
+    @rating = rating
+    @@all << self
+  end
 
-    def num_rating
-      doc.css(".ibu").text.strip
-    end
+  def self.all
+    @@all
+  end
 
-    def num_beers
-      doc.css(".abv").text.strip
-    end
+  def self.find(id)
+    self.all[id-1]
+  end
 
-    def url
-      doc.css("div.beer-item a").text
-    end
+  def num_rating
+    @num_rating ||= doc.css(".ibu").text.strip
+  end
 
-    def doc
-      Nokogiri::HTML(open(self.url))
-    end
+  def num_beers
+    @num_beers ||= doc.css(".abv").text.strip
+  end
 
-    def self.find_by_num_beers(search_num_beers)
-        all.each do |brewery|
-            if brewery.num_beers == search_num_beers
-                return brewery
-            end
-        end
-    end
-
-    def self.all
-      @@all
-    end
+  def doc
+    @doc ||= Nokogiri::HTML(open(self.url))
+  end
 end
