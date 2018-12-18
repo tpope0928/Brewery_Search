@@ -55,9 +55,10 @@ class BrewerySearch::CLI
     def print_brewery_detail(brewery)
         puts ""
         print "--------"
-        print " #{brewery.name}, #{brewery.rating} "
+        print " #{brewery.name}"
         puts ""
         puts ""
+        puts "Rating: #{brewery.rating}"
         puts "Number of Ratings: #{brewery.num_rating}"
         puts "Number of Beers: #{brewery.num_beers}"
         puts "Untappd URL: #{brewery.url}"

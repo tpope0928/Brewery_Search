@@ -6,17 +6,20 @@ class BrewerySearch::Brewery
 
   def self.new_from_index_page(b)
     self.new(
-      b.css(".name").text,
-      "https://untappd.com/brewery/top_rated?country_id=86#{b.css("a").attribute("href").text}",
-      b.css(".num").text.strip,
-
+      b.css(".name").text, #name
+      "https://untappd.com/brewery/top_rated?country_id=86#{b.css("a").attribute("href").text}", #url
+      b.css(".num").text.strip, #rating
+      b.css(".ibu").text.strip, #num_rating
+      b.css(".abv").text.strip #num_beers
       )
   end
 
-  def initialize(name=nil, url=nil, rating=nil)
+  def initialize(name=nil, url=nil, rating=nil, num_rating=nil, num_beers=nil)
     @name = name
     @url = url
     @rating = rating
+    @num_rating = num_rating
+    @num_beers = num_beers
     @@all << self
   end
 
