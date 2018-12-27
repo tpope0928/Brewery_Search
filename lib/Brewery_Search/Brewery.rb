@@ -4,16 +4,6 @@ class BrewerySearch::Brewery
 
   @@all = []
 
-  def self.new_from_index_page(b)
-    self.new(
-      b.css(".name").text, #name
-      "https://untappd.com#{b.css("a").attribute("href").text}", #url
-      b.css(".num").text.strip, #rating
-      b.css(".ibu").text.strip, #num_rating
-      b.css(".abv").text.strip #num_beers
-      )
-  end
-
   def initialize(name=nil, url=nil, rating=nil, num_rating=nil, num_beers=nil)
     @name = name
     @url = url
